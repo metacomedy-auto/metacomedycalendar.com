@@ -6,29 +6,41 @@
   <title>개인정보처리방침 — 메타코미디 캘린더</title>
   <meta name="description" content="메타코미디 캘린더가 어떤 개인정보를 받고, 어디에 쓰고, 어떻게 보관·보호하는지 설명합니다.">
   <link rel="icon" href="assets/favicon.png">
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
   <div class="wrap doc">
     <header class="top">
       <a class="brand" href="./"><img src="assets/brand-mark.png" alt="">메타코미디 캘린더</a>
-      <nav class="nav"><a href="./">홈</a><a href="privacy.html">개인정보처리방침</a></nav>
+      <nav class="nav" aria-label="사이트"><a href="./">홈</a><a href="privacy.html">개인정보처리방침</a></nav>
     </header>
 
-    <section class="hero">
+    <main id="main">
+    <section class="hero doc-head">
+      <div class="datecell" aria-hidden="true">
+        <span class="datecell__m">9월</span>
+        <span class="datecell__d">16</span>
+        <span class="datecell__w">수 · 시행</span>
+      </div>
+      <div class="doc-head__text">
       <h1>개인정보처리방침</h1>
       <p>메타코미디(이하 "회사")는 메타코미디 캘린더(이하 "서비스", 웹앱과 이 사이트 metacomedycalendar.com을 포함)를 운영하며
-        이용자의 개인정보를 아래와 같이 다룹니다. 시행일: 2026년 9월 16일.</p>
+        이용자의 개인정보를 아래와 같이 다룹니다. 시행일:&nbsp;2026년&nbsp;9월&nbsp;16일.</p>
+      </div>
     </section>
 
     <h2>1. 받는 정보와 쓰는 곳</h2>
     <table>
       <tr><th>누가</th><th>받는 정보</th><th>쓰는 곳</th></tr>
-      <tr><td>크리에이터·파트너<br>(개인 구글 계정)</td><td>Google 로그인으로 받는 <strong>이메일 주소</strong>(OpenID Connect의 <code>openid</code>, <code>email</code> 범위). 이름·프로필 사진·비밀번호는 받지 않아요.</td><td>회사가 미리 등록한 초대 명부와 대조해 접근을 허용하고, 30일짜리 로그인 세션을 만들어요.</td></tr>
-      <tr><td>메타코미디 임직원<br>(회사 구글 워크스페이스 계정)</td><td>회사 계정 이메일 주소, 회사 슬랙 디렉터리의 이름·프로필 사진</td><td>담당자·작성자 표시, 권한 판정. 회사 내부 이용자에게만 보여요.</td></tr>
+      <tr><td>크리에이터·파트너<br><span class="sub">(개인 구글 계정)</span></td><td>Google 로그인으로 받는 <strong>이메일 주소</strong>(OpenID Connect의 <code>openid</code>, <code>email</code> 범위). 이름·프로필 사진·비밀번호는 받지 않아요.</td><td>회사가 미리 등록한 초대 명부와 대조해 접근을 허용하고, 30일짜리 로그인 세션을 만들어요.</td></tr>
+      <tr><td>메타코미디 임직원<br><span class="sub">(회사 구글 워크스페이스 계정)</span></td><td>회사 계정 이메일 주소, 회사 슬랙 디렉터리의 이름·프로필 사진</td><td>담당자·작성자 표시, 권한 판정. 회사 내부 이용자에게만 보여요.</td></tr>
       <tr><td>서비스를 쓰면서</td><td>등록한 일정·업로드·댓글·담당자 지정, 변경 기록(누가·언제)</td><td>서비스의 본래 기능 — 같은 캘린더의 멤버끼리 일정을 함께 보고 고쳐요.</td></tr>
-      <tr><td>임직원이 구글 캘린더를 연결하면<br>(선택)</td><td>구글 캘린더 목록(<code>calendar.calendarlist.readonly</code>)과 선택한 캘린더의 일정(<code>calendar.events</code>), 계정 확인용 이메일</td><td>선택한 캘린더의 일정을 서비스 화면에 함께 보여 주고, '담당 일정 미러'를 켜면 본인 담당 일정의 복사본을 본인 기본 캘린더에 만들고·고치고·지워요. 서비스가 만든 복사본만 다루고, 이용자의 다른 일정은 화면에 보여 주기 위해 그때그때 읽을 뿐 회사 저장소에 저장하지 않아요.</td></tr>
+      <tr><td>임직원이 구글 캘린더를 연결하면<br><span class="sub">(선택)</span></td><td>구글 캘린더 목록(<code>calendar.calendarlist.readonly</code>)과 선택한 캘린더의 일정(<code>calendar.events</code>), 계정 확인용 이메일</td><td>선택한 캘린더의 일정을 서비스 화면에 함께 보여 주고, '담당 일정 미러'를 켜면 본인 담당 일정의 복사본을 본인 기본 캘린더에 만들고·고치고·지워요. 서비스가 만든 복사본만 다루고, 이용자의 다른 일정은 화면에 보여 주기 위해 그때그때 읽을 뿐 회사 저장소에 저장하지 않아요.</td></tr>
     </table>
     <p>광고, 분석 추적, 위치 정보는 쓰지 않아요.</p>
 
@@ -78,6 +90,8 @@
         이메일 <a href="mailto:auto@metacomedy.net">auto@metacomedy.net</a><br>
         홈페이지 <a href="https://www.metacomedy.net/">metacomedy.net</a></p>
     </div>
+
+    </main>
 
     <footer class="foot">
       <span>© 2026 메타코미디</span>
