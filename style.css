@@ -256,3 +256,25 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .legal td:nth-child(3)::before { content: "쓰는 곳"; }
   .legal tr { border-bottom: 0.5px solid var(--hairline); padding-bottom: 10px; }
 }
+
+/* ── 폰 전용 이미지: 좁은 화면(≤734px)에선 데스크톱 창 대신 아이폰 프레임에 폰 화면을 보여줘요.
+   <picture>의 source가 폰 화면을 고르고(데스크톱 원본은 내려받지 않음), .window 자체가 폰 프레임이 돼요. ── */
+.window__screen { display: contents; }          /* 넓은 화면에선 창 프레임만 — 감싸개는 없는 셈 */
+.window .phone__island { display: none; }
+.window picture, .phone__screen picture { display: block; width: 100%; height: 100%; }
+@media (max-width: 734px) {
+  .shot--desk { padding: 0 var(--gutter); }
+  .window {
+    width: 280px; max-width: 100%; aspect-ratio: 390 / 844;
+    padding: 8px; background: #1a1a1c; border: 0; border-radius: 44px; overflow: visible;
+    box-shadow: 0 0 0 1.5px #3a3a3c, 0 30px 60px rgba(0,0,0,.28);
+  }
+  .sec--dark .window { box-shadow: 0 0 0 1.5px #3a3a3c, 0 30px 60px rgba(0,0,0,.5); }
+  .shot--bleed .window { border-radius: 44px; }   /* 폰 프레임은 다음 섹션에 흘려보내지 않아요 */
+  .window__screen { display: block; position: relative; width: 100%; height: 100%; border-radius: 36px; overflow: hidden; background: #f9fafb; padding-top: 40px; }
+  .window__screen::before { content: ""; position: absolute; left: 0; top: 0; right: 0; height: 40px; background: #fff; }
+  .window .phone__island { display: block; width: 84px; height: 24px; top: 10px; }
+  .window img { height: 100%; object-fit: cover; object-position: top center; }
+  .hero { padding-bottom: 72px; }
+  .shot--desk { padding-bottom: 72px; }   /* 섹션은 아래 여백이 없어(bleed용) 폰 프레임 밑에 숨을 줘요 */
+}
