@@ -5,135 +5,145 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>메타코미디 캘린더 — 크리에이터 일정을 한곳에서</title>
   <meta name="description" content="메타코미디 소속 크리에이터의 촬영·출연·행사 일정과 영상 업로드 예정을 임직원·크리에이터·파트너가 함께 보고 관리하는 캘린더 서비스입니다.">
-  <link rel="icon" href="assets/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link rel="icon" href="assets/brand-mark.png">
   <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip" href="#main">본문으로 건너뛰기</a>
-  <div class="wrap">
-    <header class="top">
-      <a class="brand" href="./"><img src="assets/brand-mark.png" alt="">메타코미디 캘린더</a>
-      <nav class="nav" aria-label="페이지 안"><a href="#about">소개</a><a href="#login">로그인</a><a href="privacy.html">개인정보처리방침</a></nav>
-    </header>
 
-    <main id="main">
-    <section class="hero" id="about">
-      <h1>크리에이터 일정을<br>한곳에서</h1>
-      <p>메타코미디 캘린더는 메타코미디 소속 크리에이터의 촬영·편집·라이브·행사 일정과 영상 업로드 예정을
-        임직원·크리에이터·파트너가 <strong>한 화면에서 함께 등록하고 확인하는</strong> 일정 관리 서비스예요.</p>
-      <div class="cta">
-        <a class="btn" href="https://script.google.com/macros/s/AKfycbxBeJ_EX9uggfxqp-P73lkpodXVYjtN9WsuBWKPXhh71zZn9l668kxJQVrSSaYq_e_s/exec">앱 열기
-          <svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h11M11 5l5 5-5 5"/></svg></a>
-        <p class="note">메타코미디 임직원과 초대받은 크리에이터·파트너만 쓸 수 있어요. 초대는 담당 매니저에게 요청해 주세요.</p>
-      </div>
-    </section>
-
-    <section class="sheet" aria-labelledby="sheet-title" aria-describedby="sheet-desc">
-      <div class="sheet__head">
-        <span>콜시트 · 예시</span>
-        <h2 id="sheet-title">2026-08-20 (목)</h2>
-      </div>
-      <p class="sr-only" id="sheet-desc">2026년 8월 20일 목요일 하루 예시예요. 10시 촬영과 11시 회의가 겹치고, 12시에 업로드가 공개돼요. 지금은 14시 20분이에요.</p>
-      <div class="tt__cols" aria-hidden="true"><span>시각</span><span>유형</span><span>일정 · 출연 · 장소</span><span>담당</span><span>상태</span></div>
-      <ol class="tt">
-
-        <li class="tt__row" style="--lc:#4ca3f0">
-          <span class="tt__time"><time datetime="10:00">10:00</time>–<time datetime="13:00">13:00</time></span>
-          <span class="tt__bar" aria-hidden="true"></span>
-          <span class="tt__label">촬영</span>
-          <span class="tt__body"><strong>야식예능 파일럿 촬영</strong><span class="tt__meta">왕만두 · 허탈해 · 더느와르 B1 호리존 스튜디오</span></span>
-          <span class="tt__owner"><span class="k">담당 </span>최컷</span>
-          <span class="tt__status"><span class="stamp">확정</span></span>
-        </li>
-
-        <li class="tt__row" style="--lc:#30c283">
-          <span class="tt__time"><time datetime="11:00">11:00</time>–<time datetime="12:00">12:00</time></span>
-          <span class="tt__bar" aria-hidden="true"></span>
-          <span class="tt__label">회의·미팅</span>
-          <span class="tt__body"><strong>달콤제과 2차 캠페인 미팅</strong><span class="tt__meta">왕만두 · 온라인(Zoom) · 10:00 촬영과 같은 시간</span></span>
-          <span class="tt__owner"><span class="k">담당 </span>정딜</span>
-          <span class="tt__status"><span class="stamp stamp--tentative">가부킹</span><span class="stamp stamp--clash">겹침</span></span>
-        </li>
-
-        <li class="tt__row tt__row--upload" style="--lc:#3182f6">
-          <span class="tt__time"><time datetime="12:00">12:00</time><small>공개</small></span>
-          <span class="tt__bar" aria-hidden="true"></span>
-          <span class="tt__label">업로드</span>
-          <span class="tt__body"><strong>복불복 수요 라이브 하이라이트</strong><span class="tt__meta">복불복 · 채널 야식예능 · 촬영 「복불복 수요 라이브」와 연결</span></span>
-          <span class="tt__owner"><span class="k">담당 </span>이꼼꼼</span>
-          <span class="tt__status"><span class="stamp stamp--planned">예정</span></span>
-        </li>
-
-        <li class="tt__now" aria-hidden="true"><span>지금 14:20</span></li>
-        <li class="tt__row" style="--lc:#3ec8d2">
-          <span class="tt__time"><time datetime="15:00">15:00</time>–<time datetime="17:00">17:00</time></span>
-          <span class="tt__bar" aria-hidden="true"></span>
-          <span class="tt__label">편집·후반</span>
-          <span class="tt__body"><strong>EP.42 편집 리뷰</strong><span class="tt__meta">더느와르 3F 편집실 2</span></span>
-          <span class="tt__owner"><span class="k">담당 </span>최컷</span>
-          <span class="tt__status"><span class="stamp">확정</span></span>
-        </li>
-
-        <li class="tt__row" style="--lc:#937e7a">
-          <span class="tt__time"><time datetime="18:00">18:00</time>–<time datetime="21:00">21:00</time></span>
-          <span class="tt__bar" aria-hidden="true"></span>
-          <span class="tt__label">휴무·개인</span>
-          <span class="tt__body"><strong>개인 일정</strong><span class="tt__meta">안웃겨</span></span>
-          <span class="tt__owner"><span class="k">담당 </span>김단단</span>
-          <span class="tt__status"><span class="stamp">확정</span></span>
-        </li>
-
-        <li class="tt__row" style="--lc:#ef5183">
-          <span class="tt__time"><time datetime="22:00">22:00</time>–<time datetime="23:59">24:00</time></span>
-          <span class="tt__bar" aria-hidden="true"></span>
-          <span class="tt__label">라디오·팟캐스트</span>
-          <span class="tt__body"><strong>설레발의 밤 생방</strong><span class="tt__meta">설레발 · 새벽FM 본사 5층 오픈스튜디오</span></span>
-          <span class="tt__owner"><span class="k">담당 </span>이꼼꼼</span>
-          <span class="tt__status"><span class="stamp">확정</span></span>
-        </li>
-      </ol>
-      <ul class="legend" aria-label="색 막대가 뜻하는 일정 유형">
-        <li style="--lc:#4ca3f0">촬영</li>
-        <li style="--lc:#3ec8d2">편집·후반</li>
-        <li style="--lc:#e83a3f">라이브</li>
-        <li style="--lc:#b491e8">방송·게스트 출연</li>
-        <li style="--lc:#ef5183">라디오·팟캐스트</li>
-        <li style="--lc:#f9b83c">행사·공연</li>
-        <li style="--lc:#f97272">광고·브랜드</li>
-        <li style="--lc:#30c283">회의·미팅</li>
-        <li style="--lc:#937e7a">휴무·개인</li>
-        <li class="legend__hollow" style="--lc:#3182f6">업로드 공개</li>
+  <nav class="nav" aria-label="사이트">
+    <div class="nav__in">
+      <a class="nav__brand" href="./"><img src="assets/brand-mark.png" alt="" width="22" height="22">메타코미디 캘린더</a>
+      <ul class="nav__links">
+        <li><a href="#about">소개</a></li>
+        <li><a href="#login">로그인</a></li>
+        <li><a href="privacy.html">개인정보처리방침</a></li>
+        <li><a class="is-cta" href="https://script.google.com/macros/s/AKfycbxBeJ_EX9uggfxqp-P73lkpodXVYjtN9WsuBWKPXhh71zZn9l668kxJQVrSSaYq_e_s/exec">앱 열기</a></li>
       </ul>
-      <p class="sheet__foot">앱에 들어 있는 가상의 하루예요. 색 막대는 일정 유형, 도장은 상태(확정·가부킹·예정·겹침), 담당은 일정을 맡은 임직원이에요. <span class="sheet__wit">18시 뒤 '개인 일정'은 진짜 쉬는 시간이에요 — 코미디도 쉬어야 나와요.</span></p>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- 1. 히어로 · 흰 -->
+    <section class="sec sec--white hero" id="about">
+      <div class="sec__in reveal">
+        <h1 class="sec__title">크리에이터 일정을<br>한곳에서</h1>
+        <p class="sec__sub"><span class="nb">촬영·편집·라이브·행사</span> 일정과 영상 업로드 예정을 <br><span class="nb">임직원·크리에이터·파트너가</span> <span class="nb">한 화면에서</span> 함께 봐요.</p>
+        <div class="hero__cta">
+          <a class="btn" href="https://script.google.com/macros/s/AKfycbxBeJ_EX9uggfxqp-P73lkpodXVYjtN9WsuBWKPXhh71zZn9l668kxJQVrSSaYq_e_s/exec">앱 열기</a>
+          <a class="chev hero__more" href="#labels">더 알아보기</a>
+        </div>
+      </div>
+      <div class="shot shot--desk shot--bleed reveal">
+        <div class="window">
+          <img src="assets/shots/desk-month-2000.png" width="2000" height="1250" fetchpriority="high" alt="메타코미디 캘린더 월간 보기. 2026년 9월 달력에 촬영·라이브·회의 같은 일정이 색으로 구분돼 있고, 왼쪽에는 크리에이터 목록이 있어요.">
+        </div>
+      </div>
     </section>
 
-    <h2 class="sec">무엇을 할 수 있나요</h2>
-    <ul class="items">
-      <li class="item"><span class="tag">일정</span><h3>컬러 라벨로 한눈에</h3><p>촬영·편집·라이브·행사·휴무 같은 일정 유형을 색으로 구분해 월·주·일·크리에이터별·목록 보기로 봐요. 같은 크리에이터의 시간이 겹치면 바로 표시돼요.</p></li>
-      <li class="item"><span class="tag">업로드</span><h3>영상 업로드 예정 관리</h3><p>채널별 공개 예정 시각과 연결된 촬영 일정을 함께 두고, 공개 시각이 지나면 상태가 자동으로 바뀌어요.</p></li>
-      <li class="item"><span class="tag">협업</span><h3>담당자·댓글·활동 피드</h3><p>일정마다 담당자를 정하고 댓글로 이야기하며, 누가 무엇을 바꿨는지 활동 피드에서 확인해요.</p></li>
-      <li class="item"><span class="tag">연동</span><h3>구글 캘린더와 함께</h3><p>임직원은 자기 구글 캘린더를 연결해 개인 일정을 함께 보고, 담당 일정을 본인 캘린더에 복사해 둘 수 있어요(선택).</p></li>
-    </ul>
+    <!-- 2. 검정 · 폰 월간 -->
+    <section class="sec sec--dark" id="labels">
+      <div class="sec__in reveal">
+        <h2 class="sec__title">색이 곧 일정 유형</h2>
+        <p class="sec__sub"><span class="nb">촬영·편집·라이브·행사·휴무를</span> 색으로 구분해 <span class="nb">월·주·일·크리에이터별·목록으로</span> 봐요. <br>같은 크리에이터의 시간이 겹치면 바로 표시돼요.</p>
+      </div>
+      <div class="shot shot--phone reveal">
+        <div class="phone">
+          <div class="phone__screen">
+            <span class="phone__island" aria-hidden="true"></span>
+            <img src="assets/shots/phone-month-780.png" width="780" height="1688" loading="lazy" decoding="async" alt="폰에서 본 월간 보기. 9월 한 달의 일정이 유형별 색으로 칸마다 채워져 있고, 날짜 아래에 업로드 건수가 적혀 있어요.">
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h2 class="sec" id="login">로그인과 계정</h2>
-    <ul class="items">
-      <li class="item"><span class="tag">임직원</span><h3>메타코미디 임직원</h3><p>회사 구글 워크스페이스 계정으로 접속하면 별도 로그인 없이 바로 열려요.</p></li>
-      <li class="item"><span class="tag">초대</span><h3>크리에이터·파트너</h3><p>초대된 개인 구글 계정으로 <strong>Google 로그인</strong>을 해요. 로그인에서 받는 정보는 <strong>이메일 주소뿐</strong>이고, 초대 명부와 맞을 때만 들어올 수 있어요.</p></li>
-    </ul>
-    <p class="lead">개인정보를 어떻게 다루는지는 <a href="privacy.html">개인정보처리방침</a>에 적어 두었어요. 궁금한 점은 <a href="mailto:auto@metacomedy.net">auto@metacomedy.net</a>으로 보내 주세요.</p>
+    <!-- 3. 연회색 · 업로드 보드 -->
+    <section class="sec sec--grey">
+      <div class="sec__in reveal">
+        <h2 class="sec__title">업로드 예정도 같은 달력에</h2>
+        <p class="sec__sub">채널별 공개 예정 시각을 연결된 촬영 일정과 함께 두고, <br>공개 시각이 지나면 상태가 자동으로 바뀌어요.</p>
+      </div>
+      <div class="shot shot--desk shot--bleed reveal">
+        <div class="window">
+          <img src="assets/shots/desk-uploads-2000.png" width="2000" height="1250" loading="lazy" decoding="async" alt="업로드만 모아 보는 주간 보드. 9월 13일부터 19일까지 요일마다 공개 예정 영상 제목과 채널, 시각이 카드로 놓여 있어요.">
+        </div>
+      </div>
+    </section>
 
-    </main>
+    <!-- 4. 검정 · 폰 활동 피드 -->
+    <section class="sec sec--dark">
+      <div class="sec__in reveal">
+        <h2 class="sec__title">누가 무엇을 바꿨는지</h2>
+        <p class="sec__sub">누가 언제 어떤 일정과 업로드를 등록하고 고쳤는지 <br>활동 피드에 시간순으로 남아요. 열어 보지 않아도 오늘 달라진 게 보여요.</p>
+      </div>
+      <div class="shot shot--phone reveal">
+        <div class="phone">
+          <div class="phone__screen">
+            <span class="phone__island" aria-hidden="true"></span>
+            <img src="assets/shots/phone-feed-780.png" width="780" height="1688" loading="lazy" decoding="async" alt="폰에서 본 활동 피드. 누가 어떤 업로드를 어느 크리에이터와 함께 등록했는지 몇 분 전인지와 함께 시간순으로 적혀 있어요.">
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <footer class="foot">
-      <span>© 2026 메타코미디</span>
-      <a href="privacy.html">개인정보처리방침</a>
-      <a href="mailto:auto@metacomedy.net">auto@metacomedy.net</a>
-      <a href="https://www.metacomedy.net/">metacomedy.net</a>
-    </footer>
-  </div>
+    <!-- 5. 흰 · 주간 -->
+    <section class="sec sec--white">
+      <div class="sec__in reveal">
+        <h2 class="sec__title">주간으로, 시간 순으로</h2>
+        <p class="sec__sub">하루의 흐름은 주간 보기에서, 이번 주 할 일은 목록에서. <br>가부킹과 겹침도 한눈에 들어와요.</p>
+      </div>
+      <div class="shot shot--desk shot--bleed reveal">
+        <div class="window">
+          <img src="assets/shots/desk-week-2000.png" width="2000" height="1250" loading="lazy" decoding="async" alt="주간 보기. 9월 13일부터 19일까지 시간축 위에 촬영·회의·라이브·개인 일정 블록이 색으로 놓여 있고, 위쪽 줄에 종일 일정과 업로드가 있어요.">
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 타일 격자 · 로그인과 계정 -->
+    <section class="tiles" id="login" aria-label="로그인과 계정">
+      <div class="tiles__in">
+        <div class="tile tile--white reveal">
+          <p class="tile__eyebrow">메타코미디 임직원</p>
+          <h3>회사 계정이면<br>바로 열려요</h3>
+          <p>회사 구글 워크스페이스 계정으로 접속하면 별도 로그인 없이 바로 열려요.</p>
+          <div class="tile__links"><a class="chev" href="https://script.google.com/macros/s/AKfycbxBeJ_EX9uggfxqp-P73lkpodXVYjtN9WsuBWKPXhh71zZn9l668kxJQVrSSaYq_e_s/exec">앱 열기</a></div>
+        </div>
+        <div class="tile tile--dark reveal">
+          <p class="tile__eyebrow">크리에이터·파트너</p>
+          <h3>초대받은 계정으로<br>Google 로그인</h3>
+          <p>초대된 개인 구글 계정으로 Google 로그인을 해요. 로그인에서 받는 정보는 <strong>이메일 주소뿐</strong>이고, 초대 명부와 맞을 때만 들어올 수 있어요. 초대는 담당 매니저에게 요청해 주세요.</p>
+          <div class="tile__links"><a class="chev" href="https://script.google.com/macros/s/AKfycbxBeJ_EX9uggfxqp-P73lkpodXVYjtN9WsuBWKPXhh71zZn9l668kxJQVrSSaYq_e_s/exec">앱 열기</a></div>
+        </div>
+        <div class="tile tile--grey reveal">
+          <p class="tile__eyebrow">연동</p>
+          <h3>구글 캘린더와 함께</h3>
+          <p>임직원은 자기 구글 캘린더를 연결해 개인 일정을 함께 보고, 담당 일정을 본인 캘린더에 복사해 둘 수 있어요(선택).</p>
+        </div>
+        <div class="tile tile--white reveal">
+          <p class="tile__eyebrow">개인정보</p>
+          <h3>무엇을 받고<br>어디에 쓰는지</h3>
+          <p>개인정보를 어떻게 다루는지 개인정보처리방침에 적어 두었어요. 궁금한 점은 메일로 보내 주세요.</p>
+          <div class="tile__links"><a class="chev" href="privacy.html">개인정보처리방침</a><a class="chev" href="mailto:auto@metacomedy.net">auto@metacomedy.net</a></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="foot__in">
+      <p class="foot__note">화면 속 크리에이터·일정은 앱에 들어 있는 가상의 예시예요.</p>
+      <div class="foot__row">
+        <span class="foot__copy">© 2026 메타코미디</span>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="mailto:auto@metacomedy.net">auto@metacomedy.net</a>
+        <a href="https://www.metacomedy.net/">metacomedy.net</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="site.js" defer></script>
 </body>
 </html>
