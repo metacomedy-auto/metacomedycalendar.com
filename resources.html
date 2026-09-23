@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 검색엔진 색인 제외 — 홈과 같은 이유 -->
+  <meta name="robots" content="noindex">
+  <title>메타코미디 리소스 — 장소·장비 예약 현황을 한눈에</title>
+  <meta name="description" content="사옥 회의실·스튜디오와 촬영 장비의 예약 현황을 로그인 없이 링크만으로 보는 페이지예요. 회의 제목과 예약자는 공개되지 않아요.">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+
+  <nav class="nav" aria-label="사이트">
+    <div class="nav__in">
+      <div class="nav__left">
+        <a class="nav__brand" href="./"><img src="assets/brand-mark.png" alt="" width="22" height="22">메타코미디 캘린더</a>
+        <a class="nav__product" href="resources.html" aria-current="page"><span>리소스</span></a>
+      </div>
+      <ul class="nav__links">
+        <li><a href="./#about">소개</a></li>
+        <li><a href="privacy.html">개인정보처리방침</a></li>
+        <li><a class="is-cta" href="https://script.google.com/macros/s/AKfycbwXo-dSZGncJH5AxDc87GO-TJ3_iCZwHgONWIhc70NFCeWfYVS5Kt1_l2d5dp5WAqPkPg/exec">리소스 열기</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- 1. 히어로 · 흰 -->
+    <section class="sec sec--white hero" id="about">
+      <div class="sec__in reveal">
+        <p class="eyebrow">메타코미디 리소스</p>
+        <h1 class="sec__title">지금 비어 있는 곳이<br>어디인지</h1>
+        <p class="sec__sub"><span class="nb">사옥 회의실·스튜디오</span>와 <span class="nb">촬영 장비</span>의 예약 현황을 <br>로그인 없이 <span class="nb">링크 하나로</span> 봐요.</p>
+        <div class="hero__cta">
+          <a class="btn" href="https://script.google.com/macros/s/AKfycbwXo-dSZGncJH5AxDc87GO-TJ3_iCZwHgONWIhc70NFCeWfYVS5Kt1_l2d5dp5WAqPkPg/exec">리소스 열기</a>
+        </div>
+      </div>
+      <div class="shot shot--desk shot--bleed reveal">
+        <div class="window">
+          <div class="window__screen"><span class="phone__island" aria-hidden="true"></span><picture><source media="(max-width: 734px)" srcset="assets/shots/res-phone-rooms-780.png" width="780" height="1688"><img src="assets/shots/res-desk-rooms-2000.png" width="2000" height="1250" fetchpriority="high" alt="메타코미디 리소스 장소 보드. 회의실·스튜디오 목록마다 사용 가능·사용 중 상태가 있고, 아래 시간대별 현황에 예약된 시간이 막대로 놓여 있어요."></picture></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 검정 · 폰 시간대별 -->
+    <section class="sec sec--dark" id="rooms">
+      <div class="sec__in reveal">
+        <h2 class="sec__title">몇 시까지 쓸 수 있는지</h2>
+        <p class="sec__sub">하루를 06시부터 22시까지 시간표로 펼쳐요. <br>파란 막대가 예약된 시간, 파란 선이 지금이에요. <span class="nb">주간 보기</span>로 한 방의 일주일도 봐요.</p>
+      </div>
+      <div class="shot shot--phone reveal">
+        <div class="phone">
+          <div class="phone__screen">
+            <span class="phone__island" aria-hidden="true"></span>
+            <img src="assets/shots/res-phone-timeline-780.png" width="780" height="1688" loading="lazy" decoding="async" alt="폰에서 본 시간대별 현황. 날짜와 일간·주간, 장소·테이블 전환이 있고 아래 시간축에 예약된 시간이 막대로 놓여 있어요.">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 연회색 · 장비 -->
+    <section class="sec sec--grey" id="equipment">
+      <div class="sec__in reveal">
+        <h2 class="sec__title">촬영 장비는<br>남은 수량까지</h2>
+        <p class="sec__sub"><span class="nb">카메라·렌즈·마이크·조명</span> 등 39종의 보유 수량과 <span class="nb">지금 남은 수량</span>을 봐요. <br>임직원은 사내 주소에서 바로 대여를 신청하고, 남아 있으면 즉시 확정돼요.</p>
+      </div>
+      <div class="shot shot--desk shot--bleed reveal">
+        <div class="window">
+          <div class="window__screen"><span class="phone__island" aria-hidden="true"></span><picture><source media="(max-width: 734px)" srcset="assets/shots/res-phone-equipment-780.png" width="780" height="1688"><img src="assets/shots/res-desk-equipment-2000.png" width="2000" height="1250" loading="lazy" decoding="async" alt="장비 탭. 카메라마다 사진과 이름, 남은 수량이 적혀 있고 오른쪽에 대여 가능 배지가 있어요."></picture></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 타일 격자 -->
+    <section class="tiles" id="access" aria-label="이용 안내">
+      <div class="tiles__in">
+        <div class="tile tile--white reveal">
+          <p class="tile__eyebrow">메타코미디 임직원</p>
+          <h3>사내 주소에서<br>장비 대여 신청</h3>
+          <p>회사 계정으로 열면 <strong>대여 신청·내역·취소</strong>가 열려요. 사용 목적과 대여·반납 일시를 적으면 남은 수량 안에서 즉시 확정되고, 반납 인증샷도 남겨요.</p>
+          <div class="tile__links"><a class="chev" href="https://script.google.com/a/macros/metacomedy.net/s/AKfycbxLYeqscq-LIDWjGNTmfp58mOXN2Fcr5am5DqmVyxRREyskGksBaI1MeAk7jNCdAtu8/exec">사내 주소로 열기</a></div>
+        </div>
+        <div class="tile tile--dark reveal">
+          <p class="tile__eyebrow">장소 예약</p>
+          <h3>예약은 사내<br>구글 캘린더에서</h3>
+          <p>이 페이지는 현황을 보는 곳이에요. 장소 예약은 지금처럼 임직원이 사내 구글 캘린더에서 하고, 바뀐 내용은 1분 안에 보드에 반영돼요.</p>
+        </div>
+        <div class="tile tile--grey reveal">
+          <p class="tile__eyebrow">개인정보</p>
+          <h3>회의 제목은<br>새지 않아요</h3>
+          <p>장소는 <strong>사용 가능·사용 중</strong>만 보여줘요. 회의 제목·참석자·예약자는 아예 내려받지 않고, 캘린더 주소도 브라우저로 나가지 않아요.</p>
+          <div class="tile__links"><a class="chev" href="privacy.html">개인정보처리방침</a></div>
+        </div>
+        <div class="tile tile--white reveal">
+          <p class="tile__eyebrow">함께 쓰는 서비스</p>
+          <h3>크리에이터 일정은<br>캘린더에서</h3>
+          <p>촬영·출연·행사 일정과 업로드 예정은 메타코미디 캘린더가 맡아요. 둘 다 회사 계정이면 바로 열려요.</p>
+          <div class="tile__links"><a class="chev" href="./">메타코미디 캘린더 소개</a><a class="chev" href="mailto:auto@metacomedy.net">auto@metacomedy.net</a></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="foot__in">
+      <p class="foot__note">화면 속 예약과 장비 수량은 촬영 시점의 예시예요.</p>
+      <div class="foot__row">
+        <span class="foot__copy">© 2026 메타코미디</span>
+        <a href="./">메타코미디 캘린더</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="mailto:auto@metacomedy.net">auto@metacomedy.net</a>
+        <a href="https://www.metacomedy.net/">metacomedy.net</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="site.js" defer></script>
+</body>
+</html>

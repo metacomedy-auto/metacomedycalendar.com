@@ -69,6 +69,17 @@ a:hover { text-decoration: underline; }
 }
 .nav__brand img { width: 22px; height: 22px; border-radius: 6px; }
 .nav__brand:hover { text-decoration: none; }
+/* 브랜드 옆 제품 전환 — '리소스'(예약 현황 페이지). 알약 하나만 두고, 그 페이지에서는 채워진 모양이에요. */
+.nav__left { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.nav__product { display: inline-flex; align-items: center; min-height: 44px; padding: 0 2px; color: var(--text); }
+.nav__product span {
+  display: inline-block; padding: 4px 10px; border-radius: 980px;
+  font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: -0.01em;
+  background: rgba(0,0,0,.06); transition: background .15s ease;
+}
+.nav__product:hover { text-decoration: none; }
+.nav__product:hover span { background: rgba(0,0,0,.11); }
+.nav__product[aria-current="page"] span { background: var(--text); color: #fff; }
 .nav__links { display: flex; gap: 36px; margin: 0; padding: 0; list-style: none; }
 .nav__links a { display: inline-block; padding: 14px 0; font-size: 12px; line-height: 16px; color: var(--text); opacity: .88; }
 .nav__links a:hover { opacity: 1; text-decoration: none; }
@@ -104,15 +115,15 @@ a:hover { text-decoration: underline; }
 .nb { white-space: nowrap; } /* 가운뎃점 묶음이 줄 첫머리에 '·'로 시작하지 않게 */
 
 .hero { padding-top: 64px; }
+.eyebrow { margin: 0 0 10px; font-size: 17px; font-weight: 600; color: var(--text-2); letter-spacing: -0.01em; } /* 히어로 위 작은 제품명(리소스 페이지) */
 .hero .sec__title { font-size: clamp(40px, 6vw, 64px); }
-.hero__cta { margin-top: 26px; display: flex; flex-direction: column; align-items: center; gap: 6px; } /* 6 + 링크 위 패딩 8 = 눈에 보이는 간격 14 */
+.hero__cta { margin-top: 26px; display: flex; flex-direction: column; align-items: center; } /* 버튼 하나 — '더 알아보기'는 2026-09-23에 걷었어요 */
 .btn {
   display: inline-block; padding: 12px 24px; min-height: 44px;
   background: var(--button); color: #fff; border-radius: 980px;
   font-size: 17px; line-height: 20px; font-weight: 500;
 }
 .btn:hover { background: #0066cc; text-decoration: none; } /* 밝게(#0077ed)는 흰 글자 4.32:1 → 어둡게(5.57:1) */
-.hero__more { display: inline-block; padding: 8px 0; font-size: 21px; line-height: 1.4; } /* 29 + 16 = 45px 터치 목표 */
 
 /* ── 제품 화면 프레임 ───────────────────────────────────── */
 .shot { margin: 56px auto 0; }
@@ -239,7 +250,6 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .phone__screen { border-radius: 36px; padding-top: 40px; }
   .phone__screen::before { height: 40px; }
   .phone__island { width: 84px; height: 24px; top: 10px; }
-  .hero__more { font-size: 17px; padding: 11px 0; } /* 24 + 22 = 46px */
   .tiles__in { grid-template-columns: 1fr; }
   .tile { min-height: 0; padding: 44px 20px 48px; }
   .foot__row { flex-direction: column; align-items: flex-start; gap: 0; } /* 한 줄로 어정쩡하게 감기지 않게 세로로 */
