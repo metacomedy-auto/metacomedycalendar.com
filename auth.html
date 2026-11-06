@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <title>로그인 이어 가는 중 · 메타코미디 캘린더</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; color: #4e5968; font: 14px/1.6 -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
+    p { margin: 0; padding: 28px 32px; text-align: center; }
+  </style>
+</head>
+<body>
+  <p id="note">로그인을 이어 가는 중이에요…</p>
+  <script>
+    // 구글은 첫 번째가 아닌 계정을 고르면 콜백에 authuser를 붙이는데, authuser가 붙은 /exec는 구글이 /accounts(404)로 보내요(2026-11-05 확인).
+    // 그래서 구글이 여기로 돌아오게 하고, state·code만 글자 그대로 표준 /exec로 넘겨요. relay=1은 서버가 코드 교환의 redirect_uri를 고르는 표식이에요.
+    (function () {
+      var EXEC = 'https://script.google.com/macros/s/AKfycbxBeJ_EX9uggfxqp-P73lkpodXVYjtN9WsuBWKPXhh71zZn9l668kxJQVrSSaYq_e_s/exec';
+      var kept = location.search.slice(1).split('&').filter(function (part) { return /^(state|code)=/.test(part); });
+      var ours = kept.some(function (part) { return /^state=metacal(-gcal)?(:|%3A)/i.test(part); });
+      if (ours) { location.replace(EXEC + '?' + kept.join('&') + '&relay=1'); return; }
+      document.getElementById('note').textContent = '로그인 중간에 잠깐 거치는 페이지예요. 앱에서 다시 로그인해 주세요.';
+    }());
+  </script>
+</body>
+</html>
