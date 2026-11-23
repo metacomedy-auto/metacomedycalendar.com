@@ -14,14 +14,53 @@
 <body>
   <p id="note">로그인을 이어 가는 중이에요…</p>
   <script>
-    // 구글은 첫 번째가 아닌 계정을 고르면 콜백에 authuser를 붙이는데, authuser가 붙은 /exec는 구글이 /accounts(404)로 보내요(2026-11-05 확인).
-    // 그래서 구글이 여기로 돌아오게 하고, state·code만 글자 그대로 표준 /exec로 넘겨요. relay=1은 서버가 코드 교환의 redirect_uri를 고르는 표식이에요.
+    // 구글이 로그인·동의 뒤 여기로 돌아와요. 이 페이지는 코드를 이 창을 연 앱 창에 바로 건네요(2026-11-23).
+    // 예전엔 표준 /exec로만 넘겼는데, 구글 계정이 여럿인 브라우저에서 구글이 그 주소를 /macros/u/<번호>/…로 바꾸면
+    // 앱 코드에 닿기 전에 404('현재 파일을 열 수 없습니다')예요(2026-11-22 실제 오류 주소 — 여기서 넘긴 relay=1 주소에 /u/2/가 끼어 있었어요).
+    // 받는 곳은 우리 스크립트의 샌드박스 출처뿐이에요. 해시는 아래에 박아 두고, state에선 계정 번호만 가져와요.
+    // 앱이 받았다고 답하지 않으면(새로고침 전의 옛 화면 · 연 창 없음 · 남의 페이지가 연 창) 예전처럼 state·code만 글자 그대로 표준 /exec로 넘겨요.
+    // relay=1은 그때 붙이는 표식이고, why는 앱에 못 건넨 까닭이에요(tail · noopener · noack — 서버는 안 읽어요). 그 주소가 다시 오류로 돌아오면 어느 갈래였는지 보여요.
     (function () {
       var EXEC = 'https://script.google.com/macros/s/AKfycbxBeJ_EX9uggfxqp-P73lkpodXVYjtN9WsuBWKPXhh71zZn9l668kxJQVrSSaYq_e_s/exec';
+      var SANDBOX_HASH = 'humgew6cgjxrrkxo43oiyzbphgggxrxupn3wezy';   // 앱 화면 출처 n-<해시>-<번호>lu-script.googleusercontent.com의 해시(앱 저장소 DEPLOY.md에 같은 값)
+      var note = document.getElementById('note');
       var kept = location.search.slice(1).split('&').filter(function (part) { return /^(state|code)=/.test(part); });
       var ours = kept.some(function (part) { return /^state=metacal(-gcal)?(:|%3A)/i.test(part); });
-      if (ours) { location.replace(EXEC + '?' + kept.join('&') + '&relay=1'); return; }
-      document.getElementById('note').textContent = '로그인 중간에 잠깐 거치는 페이지예요. 앱에서 다시 로그인해 주세요.';
+      if (!ours) { note.textContent = '로그인 중간에 잠깐 거치는 페이지예요. 앱에서 다시 로그인해 주세요.'; return; }
+      var forward = function (why) { location.replace(EXEC + '?' + kept.join('&') + '&relay=1&why=' + why); };
+
+      var q = null;
+      try { q = new URLSearchParams(location.search); } catch (err) { q = null; }
+      var state = q ? String(q.get('state') || '') : '';
+      var code = q ? String(q.get('code') || '') : '';
+      var m = /^metacal(-gcal)?:([0-9A-Za-z_-]{1,64})$/.exec(state);   // nonce 모양은 서버의 popupNonceOk_와 같아요
+      var tail = m ? /^[0-9A-Za-z-]{1,40}_(\d{1,4})_([a-z0-9]{6})$/.exec(m[2]) : null;   // '<기본>_<번호>_<해시 앞 6자>' — 서버의 popupTail_과 같아요
+      var to = tail && tail[2] === SANDBOX_HASH.slice(0, 6) ? 'https://n-' + SANDBOX_HASH + '-' + tail[1] + 'lu-script.googleusercontent.com' : '';
+      var w = null;
+      try { w = window.opener && !window.opener.closed ? window.opener : null; } catch (err) { w = null; }
+      if (!to) { forward('tail'); return; }
+      if (!w) { forward('noopener'); return; }
+
+      // 코드만 건네요. 코드가 없거나(취소) 모양이 이상하면 코드 없이 건네고, 앱이 제 문구로 안내해요.
+      // 앱은 이 출처에서 온 결과의 코드만 써요(토큰·글은 안 받아요 — js/server.js fromOurPopup).
+      var type = m[1] ? 'gcal' : 'login', nonce = m[2];
+      var res = /^[\x21-\x7e]{1,2048}$/.test(code) ? { ok: type === 'gcal', nonce: nonce, code: code } : { ok: false, nonce: nonce };
+      var done = false, timer = 0;
+      var stop = function () { done = true; clearTimeout(timer); window.removeEventListener('message', onAck); };
+      var onAck = function (e) {
+        if (done || !e || e.origin !== to || !e.data || e.data.metacal !== type + '-ack' || e.data.nonce !== nonce) return;
+        stop();
+        // 실패는 안내만 하고 그대로 둬요. 닫기는 앱이 해요(그사이 다시 누르면 앱이 닫기를 거두고 이 창을 이어 써요).
+        if (!res.code) { note.textContent = type === 'gcal' ? '구글 캘린더를 연결하지 못했어요. 앱에서 다시 연결해 주세요.' : '로그인하지 못했어요. 앱에서 다시 로그인해 주세요.'; return; }
+        note.textContent = '확인했어요 — 앱에서 마무리해요. 이 창은 곧 닫혀요.';
+        setTimeout(function () {
+          try { window.close(); } catch (err) { /* 막혀도 앱이 닫아요 */ }
+          setTimeout(function () { note.textContent = '다 됐어요 — 이 창은 닫아 주세요.'; }, 600);
+        }, 3000);
+      };
+      window.addEventListener('message', onAck);
+      timer = setTimeout(function () { if (!done) { stop(); forward('noack'); } }, 2500);
+      try { w.postMessage({ metacal: type, payload: JSON.stringify(res) }, to); } catch (err) { stop(); forward('noack'); }
     }());
   </script>
 </body>
